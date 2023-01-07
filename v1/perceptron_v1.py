@@ -61,15 +61,23 @@ def entrenar(datos, iteraciones):
 
 
 w1, w2, b = entrenar(data, 10000)
-
+correctos = 0
+incorrectos = 0
 for x in data:
     clase = clasificar(x, w1, w2, b)
     etiqueta_real = int(x["species"] == "Gentoo")
+
     if clase == etiqueta_real:
         print(x["species"], clase)
         print("Etiquetado Correctamente")
+        correctos += 1
     else:
+        incorrectos += 1
         if clase == 1:
             print("Es NO Gentoo etiquetado Incorrectamente")
         else:
             print("Es Gentoo etiquetado Incorrectamente")
+
+print("\n\nResultados:")
+print(f"Correctos: {correctos} - {(correctos / len(data)) * 100}%")
+print(f"Incorrectos: {incorrectos} - {(incorrectos / len(data)) * 100}%")
