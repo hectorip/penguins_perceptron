@@ -1,7 +1,6 @@
 import csv
 import random
 
-
 # cargar el archivo CSV con los datos de entrenamiento como diccionario
 with open("../data/penguins.csv") as csvfile:
     data = list(csv.DictReader(csvfile))
